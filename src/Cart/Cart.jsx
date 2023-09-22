@@ -56,7 +56,7 @@ function Cart({ isOpen }) {
               >
                 Carrito
               </Typography>
-              <IconButton onClick={() => toggleCart(false)}>
+              <IconButton sx={{height:"100%"}} onClick={() => toggleCart(false)}>
                 <ClearIcon />
               </IconButton>
             </Stack>

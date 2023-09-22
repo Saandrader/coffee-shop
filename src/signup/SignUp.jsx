@@ -31,13 +31,13 @@ const INITIAL_FORM_STATE = {
 };
 
 const FORM_VALIDATION = Yup.object().shape({
-  firstName: Yup.string().required("Required"),
-  lastName: Yup.string().required("Required"),
-  email: Yup.string().email("Invalid email.").required("Required"),
-  password: Yup.string().required("Password is required"),
+  firstName: Yup.string().required("Obligatorio"),
+  lastName: Yup.string().required("Obligatorio"),
+  email: Yup.string().email("Correo inválido").required("Obligatorio"),
+  password: Yup.string().required("Obligatorio"),
   passwordConfirmation: Yup.string().test(
-    "passwords-match",
-    "Passwords must match",
+    "Las contraseñas coinciden",
+    "Las contraseñas deben coincidir",
     function (value) {
       return this.parent.password === value;
     }

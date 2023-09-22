@@ -18,7 +18,7 @@ const DrawerComp = () => {
   const navigate = useNavigate();
 
   const handleClick = () =>{
-    navigate("sign-up")
+    navigate("/sign-up")
     setOpenDrawer(!openDrawer)
   }
 

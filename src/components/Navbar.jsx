@@ -66,7 +66,7 @@ function Navbar() {
                 <Button
                   variant="contained"
                   sx={{ mx: 2 }}
-                  onClick={() => navigate("sign-up")}
+                  onClick={() => navigate("/sign-up")}
                 >
                   Registrarse
                 </Button>
@@ -75,10 +75,8 @@ function Navbar() {
               <DrawerComp />
             )}
 
-            {/* </Link> */}
-
             <IconButton
-              sx={{ px: 2, color: "background.default" }}
+              sx={{ mx: 1, color: "background.default" }}
               aria-label="cart"
               onClick={() => toggleCart(true)}
             >
