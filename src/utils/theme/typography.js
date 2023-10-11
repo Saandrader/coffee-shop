@@ -1,10 +1,10 @@
+import { primary, secondary, tertiary } from "./variables";
+
 const themeTypography = {
     fontFamily: "Poppins, sans-serif",
     htmlFontSize: 16,
     fontSize: 16,
     fontWeight: 400,
-    color:'red',
-    
     caption: {
       fontSize: "0.8rem",
       fontWeight: 400,
@@ -38,6 +38,7 @@ const themeTypography = {
       fontSize: "2.2rem",
       fontWeight: 500,
       lineHeight: 1.2,
+      color: primary
     },
     h2: {
       fontSize: "3rem",
@@ -48,6 +49,7 @@ const themeTypography = {
       fontSize: "4rem",
       fontWeight: 700,
       lineHeight: 1.2,
+
     },
     button: {
       textTransform: "none",

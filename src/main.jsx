@@ -5,7 +5,7 @@ import "./index.css";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { BrowserRouter } from "react-router-dom";
 import theme from "/src/utils/theme/index.js";
-import CartProvider from "./Context/CartContext.jsx";
+import CartProvider from "./context/CartContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

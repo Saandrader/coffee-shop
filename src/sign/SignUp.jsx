@@ -3,6 +3,7 @@ import { Container, Avatar, Grid, Box, Link, Typography } from "@mui/material";
 import { Formik, Form } from "formik";
 import { TextfieldWrapper as Textfield } from "./TextFieldWrapper";
 import { ButtonWrapper as Button } from "./ButtonWrapper";
+import signInApi from "../api/signInApi";
 
 function Copyright(props) {
   return (
@@ -67,7 +68,7 @@ export default function SignUp() {
           }}
           validationSchema={FORM_VALIDATION}
           onSubmit={(values) => {
-            console.log(values);
+            signInApi(values)
           }}
         >
           <Form>

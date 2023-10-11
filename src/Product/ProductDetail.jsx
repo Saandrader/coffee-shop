@@ -4,7 +4,7 @@ import { Container, Grid, Stack, Typography } from "@mui/material";
 import MainButton from "../components/MainButton";
 import { useState } from "react";
 import Counter from "./Counter";
-import { useCart } from "../Context/CartContext";
+import { useCart } from "../context/CartContext";
 
 function ProductDetail() {
   const { productId } = useParams();

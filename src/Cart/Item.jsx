@@ -1,8 +1,8 @@
 import { Typography, IconButton, Grid } from "@mui/material";
 
-import Counter from "../Product/Counter";
+import Counter from "../product/Counter";
 import ClearIcon from "@mui/icons-material/Clear";
-import { useCart } from "../Context/CartContext";
+import { useCart } from "../context/CartContext";
 
 function Item({ product }) {
   const { dispatch } = useCart();

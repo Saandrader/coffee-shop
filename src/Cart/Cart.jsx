@@ -11,7 +11,7 @@ import {
   Grid,
 } from "@mui/material";
 import ClearIcon from "@mui/icons-material/Clear";
-import { useCart } from "../Context/CartContext";
+import { useCart } from "../context/CartContext";
 
 import Item from "./Item";
 

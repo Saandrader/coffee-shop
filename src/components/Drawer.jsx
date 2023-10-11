@@ -13,12 +13,12 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 import { useNavigate } from "react-router-dom";
 
-const DrawerComp = () => {
+const DrawerComp = ({data}) => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const navigate = useNavigate();
 
   const handleClick = () =>{
-    navigate("/sign-up")
+    navigate(data.to)
     setOpenDrawer(!openDrawer)
   }
 
@@ -36,7 +36,7 @@ const DrawerComp = () => {
               <ListItemIcon>
                 <AccountCircleIcon/>
               </ListItemIcon>
-              <ListItemText primary="Registrarse" />
+              <ListItemText primary={data.text}/>
             </ListItemButton>
           </ListItem>
         </List>

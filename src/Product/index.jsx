@@ -10,7 +10,7 @@ function ProductDetail() {
       }, []);
     return ( 
         <>
-        <Navbar/>
+        {/* <Navbar/> */}
         <Product/>
         <Footer/>
         </>

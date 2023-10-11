@@ -2,37 +2,41 @@ import {
   AppBar,
   Container,
   Stack,
-  Typography,
   Toolbar,
-  Button,
   IconButton,
   Badge,
-  useMediaQuery,
-  useTheme,
+  Snackbar,
+  Alert,
 } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import useScrollPosition from "../hooks/useScrollPosition";
 import { Link } from "react-router-dom";
-import { useCart } from "../Context/CartContext";
-import { useNavigate } from "react-router-dom";
-import DrawerComp from "./Drawer";
+import { useCart } from "../context/CartContext";
+import  ConditionalComponents  from "./ConditionalComponents";
+import { useState } from "react";
 
 function Navbar() {
   const scrollPosition = useScrollPosition();
   const { toggleCart, cart } = useCart();
-  const navigate = useNavigate();
   const count = cart.length;
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.up("sm"));
+
+  const [openNoti, setOpenNoti] = useState(false);
+
+  const handleClickCart = () => {
+    if(cart.length == 0)
+      setOpenNoti(true);
+    else{
+      toggleCart(true)
+    }
+  };
 
   return (
     <>
       <AppBar
         sx={{
           boxShadow: scrollPosition > 10 ? 5 : 0,
-          
+
           bgcolor: "secondary.main",
-  
         }}
       >
         <Container>
@@ -40,45 +44,17 @@ function Navbar() {
             direction={"row"}
             alignItems={"center"}
             justifyContent={"space-between"}
-            sx={{height:72}}
+            sx={{ height: 72 }}
           >
-            <Link to="/" style={{ height: "100%", padding: "10px"}}>
-              <img
-                src={"/logos.png"}
-                style={{ height: "100%"}}
-              />
+            <Link to="/" style={{ height: "100%", padding: "10px" }}>
+              <img src={"/logos.png"} style={{ height: "100%" }} />
             </Link>
-            {isMobile ? (
-              <>
-                <Typography
-                  variant="h5"
-                  to="/"
-                  component={Link}
-                  sx={{
-                    flexGrow: 1,
-                    fontWeight: "bold",
-                    color: "inherit",
-                    textDecoration: "none",
-                  }}
-                >
-                  Caramel Bourborn Coffee
-                </Typography>
-                <Button
-                  variant="contained"
-                  sx={{ mx: 2 }}
-                  onClick={() => navigate("/sign-up")}
-                >
-                  Registrarse
-                </Button>
-              </>
-            ) : (
-              <DrawerComp />
-            )}
+            <ConditionalComponents />
 
             <IconButton
               sx={{ mx: 1, color: "background.default" }}
               aria-label="cart"
-              onClick={() => toggleCart(true)}
+              onClick={handleClickCart}
             >
               <Badge
                 anchorOrigin={{
@@ -95,6 +71,20 @@ function Navbar() {
         </Container>
       </AppBar>
       <Toolbar />
+      <Snackbar
+       anchorOrigin={{
+        vertical: 'top', // Muestra la notificación en la parte superior
+        horizontal: 'center', // Centra horizontalmente
+      }}
+      
+        open={openNoti}
+        autoHideDuration={2000}
+        onClose={() => {
+          setOpenNoti(false);
+        }}
+      >
+        <Alert severity="success" icon={false}>El carrito está vácio.</Alert>
+      </Snackbar>
     </>
   );
 }
